@@ -31,14 +31,14 @@ QA_PRESTRIPPED="*"
 
 src_install() {
 	insinto /opt/VESTA
-	doins -r . VESTA
-	fperms +x "/opt/VESTA/VESTA"
-	fperms +x "/opt/VESTA/VESTA-gui"
+	doins -r *
+	fperms +x /opt/VESTA/VESTA
+	fperms +x /opt/VESTA/VESTA-gui
 
 	domenu "${FILESDIR}/VESTA.desktop"
 
-	dosym "../../opt/VESTA/VESTA" "usr/bin/VESTA"
-	dosym VESTA usr/bin/vesta
+	dosym /opt/VESTA/VESTA usr/bin/VESTA
+	dosym /opt/VESTA/VESTA usr/bin/vesta
 }
 
 pkg_postinst() {
