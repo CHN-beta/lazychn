@@ -2,7 +2,7 @@
 
 EAPI=7
 
-inherit desktop
+inherit desktop xdg
 
 DESCRIPTION="3D visualization program for structural models, volumetric data such as electron/nuclear densities, and crystal morphologies."
 HOMEPAGE="https://jp-minerals.org/vesta"
@@ -32,8 +32,18 @@ QA_PRESTRIPPED="*"
 src_install() {
 	insinto /opt/VESTA
 	doins -r . VESTA
+	fperms +x "/opt/VESTA/VESTA"
+	fperms +x "/opt/VESTA/VESTA-gui"
 
 	domenu "${FILESDIR}/VESTA.desktop"
 
-	dosym "../../opt/VESTA/bin/typora" "usr/bin/VESTA"
+	dosym "../../opt/VESTA/VESTA" "usr/bin/VESTA"
+}
+
+pkg_postinst() {
+	xdg_desktop_database_update
+}
+
+pkg_postrm() {
+	xdg_desktop_database_update
 }
