@@ -38,6 +38,7 @@ src_install() {
 	domenu "${FILESDIR}/VESTA.desktop"
 
 	dosym "../../opt/VESTA/VESTA" "usr/bin/VESTA"
+	dosym VESTA usr/bin/vesta
 }
 
 pkg_postinst() {
