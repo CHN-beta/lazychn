@@ -16,7 +16,6 @@ IUSE="kde gnome"
 RESTRICT="mirror strip"
 
 # python-kivy is needed in big picture mode
-# missing vulkan-driver
 # missing python-cef
 
 DEPEND=""
@@ -27,6 +26,8 @@ RDEPEND="
     gnome? ( gnome-extra/zenity )
     app-emulation/winetricks
     virtual/wine
+	media-libs/vulkan-loader
+	media-libs/mesa[vulkan]
 	${DEPEND}"
 BDEPEND=""
 
