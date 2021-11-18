@@ -8,6 +8,7 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE=""
+RESTRICT="mirror"
 S="${WORKDIR}"
 
 src_install() {
