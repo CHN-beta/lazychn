@@ -1,6 +1,7 @@
 # this file is directly stolen from official repo, with these changes:
 # delete keywords other than ~amd64
 # add stacktrace support (with backtrace)
+# add static-libs support (bug #813049)
 
 EAPI=8
 
@@ -20,7 +21,7 @@ S="${WORKDIR}/${PN}_${MY_PV}"
 LICENSE="Boost-1.0"
 SLOT="0/${PV}" # ${PV} instead ${MAJOR_V} due to bug 486122
 KEYWORDS="~amd64"
-IUSE="bzip2 context debug doc icu lzma +nls mpi numpy python tools zlib zstd stacktrace"
+IUSE="bzip2 context debug doc icu lzma +nls mpi numpy python static-libs tools zlib zstd stacktrace"
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 # the tests will never fail because these are not intended as sanity
 # tests at all. They are more a way for upstream to check their own code
@@ -177,7 +178,7 @@ src_configure() {
 		# building with threading=single is currently not possible
 		# https://svn.boost.org/trac/boost/ticket/7105
 		threading=multi
-		link=shared
+		link=$(usex static-libs shared,static shared)
 		# this seems to be the only way to disable compression algorithms
 		# https://www.boost.org/doc/libs/1_70_0/libs/iostreams/doc/installation.html#boost-build
 		-sNO_BZIP2=$(usex bzip2 0 1)
