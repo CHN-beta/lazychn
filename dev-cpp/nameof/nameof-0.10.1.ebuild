@@ -12,5 +12,5 @@ S="${WORKDIR}"
 
 src_install() {
     mkdir -p "${D}/usr/include"
-    cp "${DISTDIR}/nameof-${PV}.hpp" "${D}/usr/include"
+    cp "${DISTDIR}/nameof-${PV}.hpp" "${D}/usr/include/nameof.hpp"
 }
