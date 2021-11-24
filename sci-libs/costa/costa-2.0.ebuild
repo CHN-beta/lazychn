@@ -15,6 +15,6 @@ S="${WORKDIR}/COSTA-v2.0"
 
 RESTRICT="mirror"
 
-DEPEND="sys-devel/gcc[openmp] sci-libs/scalapack"
+DEPEND="sys-cluster/openmpi sys-devel/gcc[openmp] sci-libs/scalapack"
 RDEPEND="${DEPEND}"
 BDEPEND="dev-util/cmake"
