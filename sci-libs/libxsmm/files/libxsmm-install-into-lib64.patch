@@ -1,0 +1,13 @@
+diff --git a/Makefile b/Makefile
+index c48ddd938..a83806fd2 100644
+--- a/Makefile
++++ b/Makefile
+@@ -5,7 +5,7 @@ SCRDIR := scripts
+ TSTDIR = tests
+ BLDDIR = obj
+ SRCDIR = src
+-OUTDIR = lib
++OUTDIR = lib64
+ BINDIR = bin
+ SPLDIR = samples
+ DOCDIR = documentation
