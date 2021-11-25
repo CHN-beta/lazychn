@@ -22,7 +22,6 @@ PATCHES=(
 src_configure() {
 	mycmakeargs=(
 		-DBUILD_TESTING=$(usex test ON OFF)
-        -DBUILD_SHARED_LIBS=OFF
 	)
 	cmake_src_configure
 }

@@ -14,5 +14,3 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE=""
-
-mycmakeargs=( -DBUILD_SHARED_LIBS=OFF )
