@@ -1,7 +1,5 @@
-# this file is directly stolen from official repo, with these changes:
-# delete keywords other than ~amd64
-# add stacktrace support (with backtrace)
-# add static-libs support (bug #813049)
+# Copyright 1999-2021 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
@@ -21,7 +19,7 @@ S="${WORKDIR}/${PN}_${MY_PV}"
 LICENSE="Boost-1.0"
 SLOT="0/${PV}" # ${PV} instead ${MAJOR_V} due to bug 486122
 KEYWORDS="~amd64"
-IUSE="bzip2 context debug doc icu lzma +nls mpi numpy python static-libs tools zlib zstd stacktrace"
+IUSE="bzip2 context debug doc icu lzma +nls mpi numpy python tools zlib zstd stacktrace static-libs"
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 # the tests will never fail because these are not intended as sanity
 # tests at all. They are more a way for upstream to check their own code
@@ -60,6 +58,7 @@ PATCHES=(
 	"${WORKDIR}"/${PN}-1.77-math-deprecated-include.patch
 	"${WORKDIR}"/${PN}-1.77-geometry.patch
 	"${FILESDIR}"/${P}-python-3.10.patch
+	"${FILESDIR}"/${P}-fix-process-include.patch
 )
 
 python_bindings_needed() {
