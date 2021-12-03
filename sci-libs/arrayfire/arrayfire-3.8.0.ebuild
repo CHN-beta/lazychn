@@ -51,6 +51,8 @@ BDEPEND="
 
 PATCHES=( "${FILESDIR}/${PN}-disable-cl2hpp-download.patch" )
 
+append-flags -v
+
 src_unpack() {
 	default
 
