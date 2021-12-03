@@ -84,7 +84,7 @@ src_configure() {
 		-DAF_WITH_LOGGING=ON
 		-DAF_WITH_STACKTRACE="$(usex trace)"
 		-DAF_CACHE_KERNELS_TO_DISK="$(usex cache)"
-		-DAF_WITH_STATIC_MKL="$(usex mkl)"
+		-DAF_WITH_STATIC_MKL="$(usex static-mkl)"
 		-DAF_INSTALL_STANDALONE=OFF
 		-DAF_WITH_STATIC_FREEIMAGE=OFF
 		-DAF_INSTALL_CMAKE_DIR=/usr/$(get_libdir)/cmake/ArrayFire
