@@ -17,7 +17,9 @@ KEYWORDS="~amd64"
 
 LICENSE="BSD nonfree? ( OpenSIFT )"
 SLOT="0"
-IUSE="examples +cache cuda doc static-mkl nonfree opencl test +trace"
+
+# currently disable cuda
+IUSE="examples +cache doc static-mkl nonfree opencl test +trace"
 RESTRICT="bindist mirror !test? ( test )"
 
 DEPEND="
@@ -29,11 +31,6 @@ DEPEND="
 	virtual/cblas
 	virtual/lapacke
 	sci-libs/fftw:3.0
-	cuda? (
-		dev-libs/cudnn
-		>=dev-util/nvidia-cuda-toolkit-9.0.0
-		>=dev-libs/boost-1.70.0
-	)
 	static-mkl? ( sci-libs/mkl[static-libs] )
 	!static-mkl? ( sci-libs/mkl )
 	opencl? (
@@ -41,8 +38,12 @@ DEPEND="
 		>=sci-libs/clblas-2.4
 		>=sci-libs/clfft-2.6.1
 		virtual/opencl
-	)
-"
+	)"
+	# cuda? (
+	# 	dev-libs/cudnn
+	# 	>=dev-util/nvidia-cuda-toolkit-9.0.0
+	# 	>=dev-libs/boost-1.70.0
+	# )
 RDEPEND="${DEPEND}"
 BDEPEND="
 	doc? ( app-doc/doxygen )
@@ -50,8 +51,6 @@ BDEPEND="
 "
 
 PATCHES=( "${FILESDIR}/${PN}-disable-cl2hpp-download.patch" )
-
-append-flags -v
 
 src_unpack() {
 	default
@@ -62,11 +61,11 @@ src_unpack() {
 }
 
 src_configure() {
-	if use cuda; then
-		addwrite /dev/nvidiactl
-		addwrite /dev/nvidia0
-		addwrite /dev/nvidia-uvm
-	fi
+	# if use cuda; then
+	# 	addwrite /dev/nvidiactl
+	# 	addwrite /dev/nvidia0
+	# 	addwrite /dev/nvidia-uvm
+	# fi
 
 	mkdir -p "${S}/build/include/CL" || die
 	cp "${DISTDIR}/cl2.hpp" "${S}/build/include/CL" || die
@@ -75,12 +74,12 @@ src_configure() {
 	# has to stay, hence a ~ on forge dependency
 	local mycmakeargs=(
 		-DAF_BUILD_CPU=ON
-		-DAF_BUILD_CUDA="$(usex cuda)"
+		# -DAF_BUILD_CUDA="$(usex cuda)"
 		-DAF_BUILD_OPENCL="$(usex opencl)"
 		-DAF_BUILD_UNIFIED=ON
 		-DAF_BUILD_DOCS="$(usex doc)"
 		-DAF_BUILD_EXAMPLES="$(usex examples)"
-		-DAF_WITH_CUDNN="$(usex cuda)"
+		# -DAF_WITH_CUDNN="$(usex cuda)"
 		-DAF_BUILD_FORGE=OFF
 		-DAF_WITH_NONFREE="$(usex nonfree)"
 		-DAF_WITH_LOGGING=ON
@@ -90,8 +89,7 @@ src_configure() {
 		-DAF_INSTALL_STANDALONE=OFF
 		-DAF_WITH_STATIC_FREEIMAGE=OFF
 		-DAF_INSTALL_CMAKE_DIR=/usr/$(get_libdir)/cmake/ArrayFire
-		-DBoost_NO_BOOST_CMAKE=ON
-		-DCUDA_HOST_COMPILER=/usr/bin/gcc
+		-DCMAKE_BUILD_TYPE=Release
 	)
 	cmake_src_configure
 }
