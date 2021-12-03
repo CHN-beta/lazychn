@@ -65,8 +65,8 @@ src_configure() {
 		addwrite /dev/nvidia-uvm
 	fi
 
-	mkdir -p "${S}/build/include/CL"
-	cp "${WORKDIR}"/cl2.hpp "${S}/build/include/CL"
+	mkdir -p "${S}/build/include/CL" || die
+	cp "${DISTDIR}/cl2.hpp" "${S}/build/include/CL" || die
 
 	# forge headers are needed, so submodule
 	# has to stay, hence a ~ on forge dependency
