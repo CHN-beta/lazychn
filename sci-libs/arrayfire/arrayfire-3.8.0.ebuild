@@ -89,6 +89,7 @@ src_configure() {
 		-DAF_WITH_STATIC_FREEIMAGE=OFF
 		-DAF_INSTALL_CMAKE_DIR=/usr/$(get_libdir)/cmake/ArrayFire
 		-DBoost_NO_BOOST_CMAKE=ON
+		-DCUDA_HOST_COMPILER=/usr/bin/gcc
 	)
 	cmake_src_configure
 }
