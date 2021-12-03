@@ -1,6 +1,3 @@
-# This file is 'stolen' from zyrenth overlay https://github.com/gentoo-mirror/zyrenth
-# I just do some fix
-
 EAPI=6
 
 PYTHON_COMPAT=( python3_{8,9} )

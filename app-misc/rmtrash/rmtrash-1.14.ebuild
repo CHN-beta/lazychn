@@ -1,5 +1,3 @@
-# The script is 'stolen' from aur https://aur.archlinux.org/packages/rmtrash/
-
 EAPI=7
 
 DESCRIPTION="trash-put made compatible to GNUs rm and rmdir"

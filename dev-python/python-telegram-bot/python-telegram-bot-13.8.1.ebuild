@@ -1,5 +1,3 @@
-# this file is 'stolen' from guru overlay, with version bump
-
 EAPI=7
 
 PYTHON_COMPAT=( python3_8 python3_9 python3_10 )

@@ -1,5 +1,3 @@
-# The script is 'stolen' from aur https://aur.archlinux.org/packages/vesta/
-
 EAPI=7
 
 inherit desktop xdg

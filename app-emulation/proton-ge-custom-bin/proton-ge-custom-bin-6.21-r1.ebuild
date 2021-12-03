@@ -1,5 +1,3 @@
-# The script is directly 'stolen' from aur https://aur.archlinux.org/packages/proton-ge-custom-bin/, with nearly no change
-
 EAPI=7
 
 _ge_ver=2
@@ -21,7 +19,6 @@ RESTRICT="mirror strip"
 DEPEND=""
 RDEPEND="
     dev-lang/python
-    media-libs/vulkan-loader
     kde? ( kde-apps/kdialog )
     gnome? ( gnome-extra/zenity )
     app-emulation/winetricks

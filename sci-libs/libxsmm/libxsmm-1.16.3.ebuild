@@ -1,5 +1,3 @@
-# The script is 'stolen' from aur https://aur.archlinux.org/packages/libxsmm/
-
 EAPI=7
 
 DESCRIPTION="A library for small dense and small sparse matrix-matrix multiplications"

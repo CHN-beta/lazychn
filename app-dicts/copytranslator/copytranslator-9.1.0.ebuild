@@ -1,5 +1,3 @@
-# The script is directly 'stolen' from aur https://aur.archlinux.org/packages/copytranslator-appimage/, with nearly no change
-
 EAPI=7
 inherit desktop
 
@@ -12,10 +10,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE=""
 
-RESTRICT="mirror strip"
-
-# python-kivy is needed in big picture mode
-# missing python-cef
+RESTRICT="mirror"
 
 DEPEND=""
 RDEPEND="${DEPEND}"

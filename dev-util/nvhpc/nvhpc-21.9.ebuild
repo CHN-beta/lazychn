@@ -1,5 +1,3 @@
-# This script is stolen from aur https://aur.archlinux.org/packages/nvhpc/
-
 EAPI=7
 
 _REL_YEAR=2021

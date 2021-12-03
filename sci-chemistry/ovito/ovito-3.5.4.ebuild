@@ -1,5 +1,3 @@
-# The script is 'stolen' from aur https://aur.archlinux.org/packages/ovito/
-
 EAPI=7
 
 inherit cmake desktop xdg

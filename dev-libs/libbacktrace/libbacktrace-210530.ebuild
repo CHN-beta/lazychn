@@ -1,6 +1,3 @@
-# this file is 'stolen' from stefantalpalaru overlay
-# with bumped to newest version and disabled patch (which I do not know what it is used for)
-
 EAPI=7
 
 inherit autotools
