@@ -21,7 +21,7 @@ DEPEND="
 	media-libs/freeimage
 	media-libs/glbinding
 	>=media-libs/glfw-3.1
-	~sci-visualization/forge-1.0.5
+	sci-visualization/forge
 	virtual/blas
 	virtual/cblas
 	virtual/lapacke

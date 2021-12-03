@@ -67,3 +67,6 @@ Currently, the following packages is added and I will update them maybe once a m
 * sci-mathematics/mathematica
   * pick from gentoo official with version bump
   * many modify to make things works
+* sci-visualization/forge
+  * pick from [science overlay](https://github.com/gentoo-mirror/science)
+  * disable `network-sandbox`
