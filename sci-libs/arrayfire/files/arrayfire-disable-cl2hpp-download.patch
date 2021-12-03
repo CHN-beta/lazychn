@@ -1,0 +1,13 @@
+diff --git a/CMakeModules/build_cl2hpp.cmake b/CMakeModules/build_cl2hpp.cmake
+index 70a94c5..b30f494 100644
+--- a/CMakeModules/build_cl2hpp.cmake
++++ b/CMakeModules/build_cl2hpp.cmake
+@@ -13,7 +13,7 @@
+ 
+ find_package(OpenCL)
+ 
+-set(cl2hpp_file_url "https://github.com/KhronosGroup/OpenCL-CLHPP/releases/download/v2.0.10/cl2.hpp")
++# set(cl2hpp_file_url "https://github.com/KhronosGroup/OpenCL-CLHPP/releases/download/v2.0.10/cl2.hpp")
+ set(cl2hpp_file "${ArrayFire_BINARY_DIR}/include/CL/cl2.hpp")
+ 
+ if(OpenCL_FOUND)

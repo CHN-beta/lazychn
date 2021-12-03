@@ -48,6 +48,8 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
+PATCHES=( "${FILESDIR}/${PN}-disable-cl2hpp-download.patch" )
+
 src_unpack() {
 	default
 
