@@ -17,7 +17,7 @@ KEYWORDS="~amd64"
 
 LICENSE="BSD nonfree? ( OpenSIFT )"
 SLOT="0"
-IUSE="examples +cache cuda doc mkl nonfree opencl test +trace"
+IUSE="examples +cache cuda doc static-mkl nonfree opencl test +trace"
 RESTRICT="bindist mirror !test? ( test )"
 
 DEPEND="
@@ -34,7 +34,8 @@ DEPEND="
 		>=dev-util/nvidia-cuda-toolkit-9.0.0
 		>=dev-libs/boost-1.70.0
 	)
-	sci-libs/mkl
+	static-mkl? ( sci-libs/mkl[static-libs] )
+	!static-mkl? ( sci-libs/mkl )
 	opencl? (
 		>=dev-libs/boost-1.70.0
 		>=sci-libs/clblas-2.4
@@ -87,6 +88,7 @@ src_configure() {
 		-DAF_INSTALL_STANDALONE=OFF
 		-DAF_WITH_STATIC_FREEIMAGE=OFF
 		-DAF_INSTALL_CMAKE_DIR=/usr/$(get_libdir)/cmake/ArrayFire
+		-DBoost_NO_BOOST_CMAKE=ON
 	)
 	cmake_src_configure
 }
