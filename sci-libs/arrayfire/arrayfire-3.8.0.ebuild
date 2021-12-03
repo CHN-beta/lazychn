@@ -7,7 +7,9 @@ inherit cmake multilib
 
 DESCRIPTION="general purpose GPU library"
 HOMEPAGE="https://arrayfire.com/"
-SRC_URI="https://github.com/arrayfire/arrayfire/releases/download/v${PV}/${PN}-full-${PV}.tar.bz2 -> ${P}.tar.bz2"
+SRC_URI="
+	https://github.com/arrayfire/arrayfire/releases/download/v${PV}/${PN}-full-${PV}.tar.bz2 -> ${P}.tar.bz2
+	https://github.com/KhronosGroup/OpenCL-CLHPP/releases/download/v2.0.10/cl2.hpp"
 S="${WORKDIR}"/${PN}-full-${PV}
 BUILD_DIR="${S}/build"
 
@@ -44,7 +46,6 @@ RDEPEND="${DEPEND}"
 BDEPEND="
 	doc? ( app-doc/doxygen )
 	virtual/pkgconfig
-	dev-libs/clhpp
 "
 
 src_unpack() {
@@ -61,6 +62,9 @@ src_configure() {
 		addwrite /dev/nvidia0
 		addwrite /dev/nvidia-uvm
 	fi
+
+	mkdir -p "${S}/build/include/CL"
+	cp "${WORKDIR}"/cl2.hpp "${S}/build/include/CL"
 
 	# forge headers are needed, so submodule
 	# has to stay, hence a ~ on forge dependency
