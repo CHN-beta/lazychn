@@ -7,9 +7,7 @@ inherit cmake multilib
 
 DESCRIPTION="general purpose GPU library"
 HOMEPAGE="https://arrayfire.com/"
-SRC_URI="
-	https://github.com/arrayfire/arrayfire/releases/download/v${PV}/${PN}-full-${PV}.tar.bz2 -> ${P}.tar.bz2
-	https://github.com/KhronosGroup/OpenCL-CLHPP/releases/download/v2.0.10/cl2.hpp"
+SRC_URI="https://github.com/arrayfire/arrayfire/releases/download/v${PV}/${PN}-full-${PV}.tar.bz2 -> ${P}.tar.bz2"
 S="${WORKDIR}"/${PN}-full-${PV}
 BUILD_DIR="${S}/build"
 
@@ -20,7 +18,7 @@ SLOT="0"
 
 # currently disable cuda
 IUSE="examples +cache doc static-mkl nonfree opencl test +trace"
-RESTRICT="bindist mirror !test? ( test )"
+RESTRICT="bindist mirror network-sandbox !test? ( test )"
 
 DEPEND="
 	media-libs/freeimage
@@ -50,7 +48,9 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
-PATCHES=( "${FILESDIR}/${PN}-disable-cl2hpp-download.patch" )
+PATCHES=( "${FILESDIR}/${PN}-define-DBL_EPSILON.patch" )
+
+append-flags -fpermissive
 
 src_unpack() {
 	default
@@ -67,19 +67,19 @@ src_configure() {
 	# 	addwrite /dev/nvidia-uvm
 	# fi
 
-	mkdir -p "${S}/build/include/CL" || die
-	cp "${DISTDIR}/cl2.hpp" "${S}/build/include/CL" || die
-
 	# forge headers are needed, so submodule
 	# has to stay, hence a ~ on forge dependency
 	local mycmakeargs=(
 		-DAF_BUILD_CPU=ON
+		-DUSE_CPU_MKL=ON
 		# -DAF_BUILD_CUDA="$(usex cuda)"
+		-DAF_BUILD_CUDA=OFF
 		-DAF_BUILD_OPENCL="$(usex opencl)"
 		-DAF_BUILD_UNIFIED=ON
 		-DAF_BUILD_DOCS="$(usex doc)"
 		-DAF_BUILD_EXAMPLES="$(usex examples)"
 		# -DAF_WITH_CUDNN="$(usex cuda)"
+		-DAF_WITH_CUDNN=OFF
 		-DAF_BUILD_FORGE=OFF
 		-DAF_WITH_NONFREE="$(usex nonfree)"
 		-DAF_WITH_LOGGING=ON
@@ -90,6 +90,8 @@ src_configure() {
 		-DAF_WITH_STATIC_FREEIMAGE=OFF
 		-DAF_INSTALL_CMAKE_DIR=/usr/$(get_libdir)/cmake/ArrayFire
 		-DCMAKE_BUILD_TYPE=Release
+		-DMKL_INCLUDE_DIR=/usr/include/mkl
+		-DBUILD_TESTING="$(usex test)"
 	)
 	cmake_src_configure
 }
