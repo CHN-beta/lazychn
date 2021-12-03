@@ -18,7 +18,7 @@ SLOT="0"
 IUSE="examples +cache cuda doc mkl nonfree opencl test +trace"
 RESTRICT="bindist mirror !test? ( test )"
 
-RDEPEND="
+DEPEND="
 	media-libs/freeimage
 	media-libs/glbinding
 	>=media-libs/glfw-3.1
@@ -32,9 +32,7 @@ RDEPEND="
 		>=dev-util/nvidia-cuda-toolkit-9.0.0
 		>=dev-libs/boost-1.70.0
 	)
-	mkl? (
-	     sci-libs/mkl
-	)
+	sci-libs/mkl
 	opencl? (
 		>=dev-libs/boost-1.70.0
 		>=sci-libs/clblas-2.4
@@ -42,7 +40,7 @@ RDEPEND="
 		virtual/opencl
 	)
 "
-DEPEND="${RDEPEND}"
+RDEPEND="${DEPEND}"
 BDEPEND="
 	doc? ( app-doc/doxygen )
 	virtual/pkgconfig
