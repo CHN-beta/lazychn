@@ -41,6 +41,9 @@ Currently, the following packages is added and I will update them maybe once a m
 * dev-util/nvhpc
   * pick from [aur](https://aur.archlinux.org/packages/nvhpc/)
   * need some package from [science overlay](https://github.com/gentoo-mirror/science)
+* dev-util/nvidia-cuda-toolkit
+  * pick from gentoo official
+  * export `CUDA_PATH` environment variable to make other packaging process easier
 * sci-chemistry/ovito
   * pick from [aur](https://aur.archlinux.org/packages/ovito/)
 * sci-chemistry/vesta
