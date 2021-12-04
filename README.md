@@ -4,11 +4,11 @@ I switched from archlinux, and found many packages missing in gentoo, so I decid
 
 The procession of packaging is far from finish, I may add new packages as often as a few days. I also plan to move some of the packages to gentoo-zh, but currently I have doubts about the quality of my packaging especially license concerned parts.
 
-All the ebuilds in the overlay is marked as only `~amd64` keywords even it is practically supported by other plantform, as I have only amd64 plantform to test.
+All the ebuilds in the overlay is marked as only `~amd64` keywords even it is practically supported by other plantform, as I have only amd64 plantform to test. Furthermore, I may modify an ebuild file without reversion, 
 
 Feel free to use or contribute to this repo.
 
-Currently, the following packages is added and I will update them maybe once a month:
+Currently, the following packages is added and I will update them maybe once a week:
 
 * app-backup/snapper-gui
   * pick from [zyrenth overlay](https://github.com/gentoo-mirror/zyrenth)
@@ -19,6 +19,7 @@ Currently, the following packages is added and I will update them maybe once a m
 * app-editors/typora
   * pick from [aur](https://aur.archlinux.org/packages/typora/)
   * delete some (maybe) unnecessary operations such as `chmod`
+  * also in [gentoo-zh](https://github.com/microcai/gentoo-zh)
 * app-emulation/proton-ge-custom-bin
   * pick from [aur](https://aur.archlinux.org/packages/proton-ge-custom-bin/)
   * need some package from [pg_overlay](https://github.com/perfect7gentleman/pg_overlay) and [wine overlay](https://github.com/gentoo-mirror/wine)

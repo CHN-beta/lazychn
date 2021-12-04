@@ -5,11 +5,10 @@ EAPI=7
 
 inherit desktop
 
-DESCRIPTION="Typora will give you a seamless experience as both a reader and a writer."
+DESCRIPTION="A truely minimal markdown editor."
 HOMEPAGE="https://typora.io"
 SRC_URI="https://www.typora.io/linux/typora_${PV}_amd64.deb"
 
-#TODO : update license
 LICENSE="typora"
 SLOT="0"
 KEYWORDS="~amd64"
