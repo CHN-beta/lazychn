@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=VESTA
-Exec=/usr/bin/VESTA %F
+Exec=/opt/bin/VESTA %F
 Type=Application
 Categories=Science
 Terminal=false
