@@ -5,7 +5,7 @@ EAPI=7
 
 inherit desktop xdg
 
-DESCRIPTION="3D visualization program for structural models, volumetric data such as electron/nuclear densities, and crystal morphologies."
+DESCRIPTION="Visualization for Electronic and STructural Analysis"
 HOMEPAGE="https://jp-minerals.org/vesta"
 SRC_URI="https://jp-minerals.org/vesta/archives/${PV}/VESTA-gtk3.tar.bz2 -> ${PN}-${PV}.tar.bz2"
 
@@ -38,8 +38,8 @@ src_install() {
 
 	domenu "${FILESDIR}/VESTA.desktop"
 
-	dosym /opt/VESTA/VESTA /opt/bin/VESTA
-	dosym /opt/VESTA/VESTA /opt/bin/vesta
+	dosym ../VESTA/VESTA /opt/bin/VESTA
+	dosym ../VESTA/VESTA /opt/bin/vesta
 }
 
 pkg_postinst() {
@@ -50,7 +50,8 @@ pkg_postinst() {
 	elog "To restore the previous behavior, please install version 3.5.5 or earlier."
 
 	elog "If you meet any abnormal behavior while using VESTA after upgrade or downgrade,"
-	elog "please remove ~/.VESTA and restart VESTA."
+	elog "try remove ~/.VESTA and restart VESTA. Note that this will make you lost"
+	elog "all your saved configs."
 }
 
 pkg_postrm() {
