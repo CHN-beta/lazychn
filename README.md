@@ -14,6 +14,7 @@ Currently, the following packages is added and I will update them maybe once a w
   * pick from [zyrenth overlay](https://github.com/gentoo-mirror/zyrenth)
   * use last commit date as version, instead of `9999`
   * fix `.desktop` file
+  * also available in [gentoo-zh](https://github.com/microcai/gentoo-zh)
 * app-dicts/copytranslator
   * pick from [aur](https://aur.archlinux.org/packages/copytranslator-appimage/)
   * also avialable in [gentoo-zh](https://github.com/microcai/gentoo-zh)

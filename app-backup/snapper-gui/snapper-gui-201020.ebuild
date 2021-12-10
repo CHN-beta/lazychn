@@ -1,6 +1,10 @@
-EAPI=6
+# Copyright 1999-2021 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
 
-PYTHON_COMPAT=( python3_{8,9} )
+EAPI=7
+
+PYTHON_COMPAT=( python3_{8..10} )
+DISTUTILS_SINGLE_IMPL=y
 inherit distutils-r1 git-r3
 
 DESCRIPTION="GUI for snapper, a tool for Linux filesystem snapshot management"
@@ -12,17 +16,17 @@ EGIT_COMMIT=f0c67ab
 LICENSE="GPL-2+"
 SLOT="0"
 IUSE=""
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
-DEPEND="${PYTHON_DEPEND}"
+DEPEND=""
 RDEPEND="
 	${DEPEND}
 	app-backup/snapper
-	dev-python/dbus-python
-	dev-python/pygobject
+	$(python_gen_cond_dep 'dev-python/dbus-python[${PYTHON_USEDEP}] dev-python/pygobject[${PYTHON_USEDEP}]')
 	x11-libs/gtksourceview:3.0
 "
 
 src_prepare() {
-	sed -i 's/Utilities;/Utility;/' ${S}/snapper-gui.desktop
+	sed -i 's/Utilities;/Utility;/' "${S}/snapper-gui.desktop"
 	default
 }
