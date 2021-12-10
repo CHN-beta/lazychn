@@ -27,6 +27,7 @@ Currently, the following packages is added and I will update them maybe once a w
   * need some package from [pg_overlay](https://github.com/perfect7gentleman/pg_overlay) and [wine overlay](https://github.com/gentoo-mirror/wine)
 * app-misc/rmtrash
   * pick from [aur](https://aur.archlinux.org/packages/rmtrash/)
+  * also available in [gentoo-zh](https://github.com/microcai/gentoo-zh)
 * dev-cpp/cppcoro
   * pick from [aur](https://aur.archlinux.org/packages/cppcoro-cmake-git/)
   * use last commit date as version, instead of `9999`
