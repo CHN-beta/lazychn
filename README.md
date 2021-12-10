@@ -16,10 +16,11 @@ Currently, the following packages is added and I will update them maybe once a w
   * fix `.desktop` file
 * app-dicts/copytranslator
   * pick from [aur](https://aur.archlinux.org/packages/copytranslator-appimage/)
+  * also avialable in [gentoo-zh](https://github.com/microcai/gentoo-zh)
 * app-editors/typora
   * pick from [aur](https://aur.archlinux.org/packages/typora/)
   * delete some (maybe) unnecessary operations such as `chmod`
-  * also in [gentoo-zh](https://github.com/microcai/gentoo-zh)
+  * also available in [gentoo-zh](https://github.com/microcai/gentoo-zh)
 * app-emulation/proton-ge-custom-bin
   * pick from [aur](https://aur.archlinux.org/packages/proton-ge-custom-bin/)
   * need some package from [pg_overlay](https://github.com/perfect7gentleman/pg_overlay) and [wine overlay](https://github.com/gentoo-mirror/wine)
@@ -50,6 +51,7 @@ Currently, the following packages is added and I will update them maybe once a w
 * sci-chemistry/vesta
   * pick from [aur](https://aur.archlinux.org/packages/vesta/)
   * hold version 3.5.5, as a [behavior change in 3.5.6](https://groups.google.com/g/vesta-discuss/c/y7TCMRe1HlA)
+  * also available in [gentoo-zh](https://github.com/microcai/gentoo-zh)
 * sci-libs/arrayfire
   * pick from gentoo official
   * remove `cuda` use flag as it causes build failed
