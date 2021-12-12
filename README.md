@@ -32,6 +32,7 @@ Currently, the following packages is added and I will update them maybe once a w
   * pick from [aur](https://aur.archlinux.org/packages/cppcoro-cmake-git/)
   * use last commit date as version, instead of `9999`
 * dev-cpp/date
+  * also available in [gentoo-zh](https://github.com/microcai/gentoo-zh)
 * dev-cpp/nameof
 * dev-cpp/tgbot-cpp
   * use last commit date as version, instead of `9999`
