@@ -13,4 +13,6 @@ RESTRICT="mirror"
 src_install() {
     mkdir -p "${D}/usr/include"
     cp -r include/date "${D}/usr/include"
+    mkdir -p "${D}/usr/src"
+    cp -r src "${D}/usr/src/date"
 }
