@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -14,8 +14,7 @@ IUSE=""
 RESTRICT="mirror"
 
 src_install() {
-	mkdir -p "${D}/usr/include"
-	cp -r include/date "${D}/usr/include"
-	mkdir -p "${D}/usr/src"
-	cp -r src "${D}/usr/src/date"
+	doheader -r include/date
+	mkdir -p "${D}/usr/src" || die
+	cp -r src "${D}/usr/src/date" || die
 }
