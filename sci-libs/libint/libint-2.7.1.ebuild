@@ -7,20 +7,35 @@ inherit cmake
 
 DESCRIPTION="Matrix elements (integrals) evaluation over Cartesian Gaussian functions"
 HOMEPAGE="https://github.com/evaleev/libint"
-SRC_URI="https://github.com/evaleev/libint/releases/download/v${PV}/libint-${PV}.tgz -> ${P}.tar.gz"
+SRC_URI=""
 
 SLOT="2"
 LICENSE="GPL-2"
 KEYWORDS="~amd64"
-IUSE=""
+IUSE="static-libs +cxx fortran"
 
-PATCHES=("${FILESDIR}/${PN}-ins-into-lib64.patch")
+RESTRICT="mirror"
 
+DEPEND="
+	dev-libs/boost
+	dev-libs/gmp[cxx(+)]
+	cxx? ( dev-cpp/eigen )
+	fortran? (
+		dev-lang/python 
+		sys-devel/gcc[fortran] )"
+BDEPEND="~dev-libs/libint-sources-${PV}"
+RDEPEND="${DEPEND}"
+
+src_unpack() {
+	cp -r "/usr/src/${P}" "${WORKDIR}" || die
+	default
+}
 
 src_configure() {
-	mycmakeargs=(
-		-DENABLE_FORTRAN=ON
-		-DENABLE_MPFR=ON
+	local mycmakeargs=(
+		-DREQUIRE_CXX_API=$(usex cxx ON OFF)
+		-DENABLE_FORTRAN=$(usex fortran ON OFF)
+		-DLIBINT2_BUILD_SHARED_AND_STATIC_LIBS=$(usex static-libs ON OFF)
 	)
 	cmake_src_configure
 }

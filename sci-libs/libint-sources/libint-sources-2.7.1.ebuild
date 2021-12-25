@@ -47,7 +47,9 @@ pkg_pretend() {
 	einfo
 	einfo "The generator of libint shipped with a lot of options, makes it troublesome"
 	einfo "to implement them as use flags. This package keep all of options as default,"
-	einfo "but you could change as your need them by LIBINT_CONF_OPTS variable. For example:"
+	einfo "but you could change as you needed by LIBINT_CONF_OPTS variable. For example:"
 	einfo "   echo LIBINT_CONF_OPTS=\"--enable-eri=2 --enable-eri2=2\" > /etc/portage/env/libint-sources.conf"
 	einfo "   echo \"sci-libs/libint-sources libint-sources.conf\" >> /etc/portage/package.env/custom"
+	einfo "Although under default options generating sources takes only a minute, it could also spend"
+	einfo "several hours depending on LIBINT_CONF_OPTS you set."
 }
