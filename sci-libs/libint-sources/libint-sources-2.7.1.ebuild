@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit autotools toolchain-funcs
+inherit autotools
 
 DESCRIPTION="high-performance library for computing Gaussian integrals in quantum mechanics"
 HOMEPAGE="https://github.com/evaleev/libint"
@@ -41,7 +41,7 @@ src_install() {
 	tar -xvf "${S}/libint-${PV}.tgz" -C "${D}/usr/src" || die
 }
 
-pkg_postinst() {
+pkg_pretend() {
 	einfo "This package only install generated sources."
 	einfo "To actually install libint, you need to install sci-libs/libint."
 	einfo
