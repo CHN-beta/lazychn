@@ -29,7 +29,7 @@ src_prepare() {
 
 src_configure() {
 	einfo "using LIBINT_CONF_OPTS=${LIBINT_CONF_OPTS}"
-	econf "${LIBINT_CONF_OPTS}"
+	econf ${LIBINT_CONF_OPTS}
 }
 
 src_compile() {
