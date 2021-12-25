@@ -1,0 +1,27 @@
+--- libint-2.7.1/export/cmake/CMakeLists.txt.export	2021-12-23 18:58:10.529417865 +0800
++++ /var/tmp/portage/sci-libs/libint-2.7.1/work/libint-2.7.1/CMakeLists.txt	2021-12-23 15:09:13.334135608 +0800
+@@ -157,13 +157,13 @@
+         CACHE PATH "LIBINT2 binary install directory")
+ set(LIBINT2_INSTALL_INCLUDEDIR "include"
+         CACHE PATH "LIBINT2 INCLUDE install directory")
+-set(LIBINT2_INSTALL_LIBDIR "lib"
++set(LIBINT2_INSTALL_LIBDIR "lib64"
+         CACHE PATH "LIBINT2 LIB install directory")
+ set(LIBINT2_INSTALL_DATADIR "share/libint/${LIBINT_VERSION}"
+         CACHE PATH "LIBINT2 DATA install directory")
+ set(LIBINT2_INSTALL_DOCDIR "share/libint/${LIBINT_VERSION}/doc"
+         CACHE PATH "LIBINT2 DOC install directory")
+-set(LIBINT2_INSTALL_CMAKEDIR "lib/cmake/libint2"
++set(LIBINT2_INSTALL_CMAKEDIR "lib64/cmake/libint2"
+         CACHE PATH "LIBINT2 CMAKE install directory")
+ 
+ # Libint library =======================================================================================================
+@@ -483,7 +483,7 @@
+ 
+ # install cmake-processed files
+ install(FILES ${PROJECT_BINARY_DIR}/libint2.pc
+-        DESTINATION lib/pkgconfig)
++        DESTINATION lib64/pkgconfig)
+ install(FILES ${PROJECT_BINARY_DIR}/include/libint2/config.h
+         DESTINATION "${LIBINT2_INSTALL_INCLUDEDIR}/libint2")
+ install(FILES ${PROJECT_BINARY_DIR}/include/libint2/basis.h
