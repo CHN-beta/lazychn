@@ -23,7 +23,7 @@ DEPEND="
 	fortran? (
 		dev-lang/python 
 		sys-devel/gcc[fortran] )"
-BDEPEND="~dev-libs/libint-sources-${PV}"
+BDEPEND="~sci-libs/libint-sources-${PV}"
 RDEPEND="${DEPEND}"
 
 src_unpack() {
