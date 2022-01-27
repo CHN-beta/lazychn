@@ -53,10 +53,10 @@ S="${WORKDIR}/linux-${PV}-xanmod"
 
 K_EXTRAEINFO="For more info on xanmod-hybrid and details on how to report problems,	see: ${HOMEPAGE}."
 
-PATCHES=( "${DISTDIR}/patch-5.15.16-xanmod1" )
+PATCHES=( "${DISTDIR}/patch-${PV}-xanmod1" )
 
 src_prepare() {
-	eapply "${DISTDIR}/patch-5.15.16-xanmod1"	||	die
+	eapply "${DISTDIR}/patch-${PV}-xanmod1"	||	die
 	kernel-2_src_prepare
 }
 
