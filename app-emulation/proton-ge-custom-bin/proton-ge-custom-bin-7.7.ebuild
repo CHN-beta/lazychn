@@ -54,7 +54,7 @@ RDEPEND="
 	kde? ( kde-apps/kdialog )
 	gnome? ( gnome-extra/zenity )
 
-	app-emulation/winetricks[abi_x86_32]
+	app-emulation/winetricks
 	virtual/wine[abi_x86_32]
 
 	media-libs/mesa[vulkan]"
