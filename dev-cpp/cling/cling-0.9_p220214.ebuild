@@ -23,16 +23,13 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE=""
 RESTRICT="mirror"
-
-append-cppflags "-Wno-redundant-move"
+PATCHES=( "${FILESDIR}/cling-disable-cling-demo.patch" 
+	"${FILESDIR}/cling-add-missing-header.patch" )
 
 pkg_pretend() {
 	einfo "A lot of memory is required at linking stage."
-	einfo
 	einfo "For me, 40G of RAM and 16G of swap is sufficient for make -j4."
 	einfo "Be careful to reduce the threads used appropriately."
-	einfo "You can also compile with more threads and use ccache to cache the results,"
-	einfo "then cancel and recompile with fewer threads during the final linking stage."
 }
 
 src_unpack() {
@@ -47,7 +44,16 @@ src_unpack() {
 src_configure() {
 	local mycmakeargs=(
 		-Wno-dev
+		-DCMAKE_INSTALL_PREFIX="/opt/cling"
 	)
 	cmake_src_configure
 }
 
+src_install() {
+	cmake_src_install
+	if [ -d "${D}/usr" ]
+	then
+		rm -r "${D}/usr" || die
+	fi
+	dosym "${D}/opt/bin/cling" ../cling/bin/cling
+}
