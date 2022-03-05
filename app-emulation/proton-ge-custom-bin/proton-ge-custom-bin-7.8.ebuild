@@ -24,10 +24,6 @@ pkg_pretend() {
 	einfo "and some of ones listed may not necessary."
 	einfo "Feel free to try it on your favourite games and any"
 	einfo "issue/pr is welcome."
-	einfo
-	einfo "Mahjong Soul (or in Chinese, 雀魂) seems not compatible"
-	einfo "with 7.x version of proton-ge-custom-bin. You can try"
-	einfo "the older versions."
 }
 
 src_install() {
