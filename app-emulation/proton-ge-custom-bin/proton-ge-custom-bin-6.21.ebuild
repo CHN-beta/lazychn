@@ -19,7 +19,7 @@ S="${WORKDIR}"
 
 pkg_pretend() {
 	einfo "Some other packages may be needed to run some games,"
-	einfo "You can install them by pull-in proton-ge-custom-meta."
+	einfo "you can install them by pull-in proton-ge-custom-meta."
 	einfo "However, the list of dependencies may be not complete,"
 	einfo "and some of ones listed may not necessary."
 	einfo "Feel free to try it on your favourite games and any"
