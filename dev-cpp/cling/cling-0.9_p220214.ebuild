@@ -55,5 +55,5 @@ src_install() {
 	then
 		rm -r "${D}/usr" || die
 	fi
-	dosym "${D}/opt/bin/cling" ../cling/bin/cling
+	dosym ../cling/bin/cling "/opt/bin/cling"
 }
