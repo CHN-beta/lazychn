@@ -15,3 +15,15 @@ diff --color -u -r cairo-1.16.0/autogen.sh cairo-1.16.0-patched/autogen.sh
  # create dummy */Makefile.am.features and ChangeLog to make automake happy
  > boilerplate/Makefile.am.features
  > src/Makefile.am.features
+diff --color -u -r cairo-1.16.0/configure.ac cairo-1.16.0-patched/configure.ac
+--- cairo-1.16.0/configure.ac	2018-10-18 08:21:03.000000000 +0800
++++ cairo-1.16.0-patched/configure.ac	2022-03-27 16:04:10.783582322 +0800
+@@ -890,8 +890,6 @@
+ util/cairo-sphinx/Makefile
+ util/cairo-trace/Makefile
+ util/cairo-trace/cairo-trace
+-doc/Makefile
+-doc/public/Makefile
+ ])
+ AC_CONFIG_COMMANDS([cairo-trace],
+ 		   [chmod a+x util/cairo-trace/cairo-trace])
