@@ -1,0 +1,17 @@
+diff --color -u -r cairo-1.16.0/autogen.sh cairo-1.16.0-patched/autogen.sh
+--- cairo-1.16.0/autogen.sh	2022-03-27 15:44:44.902642113 +0800
++++ cairo-1.16.0-patched/autogen.sh	2022-03-27 15:45:16.427217275 +0800
+@@ -13,13 +13,6 @@
+         exit 1
+ fi
+ 
+-GTKDOCIZE=`which gtkdocize`
+-if test -z $GTKDOCIZE; then
+-        echo "*** No GTK-Doc found, documentation won't be generated ***"
+-else
+-        gtkdocize || exit $?
+-fi
+-
+ # create dummy */Makefile.am.features and ChangeLog to make automake happy
+ > boilerplate/Makefile.am.features
+ > src/Makefile.am.features

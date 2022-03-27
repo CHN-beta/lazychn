@@ -72,6 +72,11 @@ src_prepare() {
 		eapply "${FILESDIR}"/${PN}-1.16.0-binutils-2.34.patch
 	fi
 
+	if use mingw
+	then
+		eapply "${FILESDIR}"/${PN}-1.16.0-remove-doc.patch
+	fi
+
 	# tests and perf tools require X, bug #483574
 	if ! use X; then
 		sed -e '/^SUBDIRS/ s#boilerplate test perf# #' -i Makefile.am || die
