@@ -1,7 +1,7 @@
 diff --git a/libmariadb/CMakeLists.txt b/libmariadb/CMakeLists.txt
 index c109a20..e1fa3f1 100644
---- a/libmariadb/CMakeLists.txt
-+++ b/libmariadb/CMakeLists.txt
+--- a/libmariadb/libmariadb/CMakeLists.txt
++++ b/libmariadb/libmariadb/CMakeLists.txt
 @@ -405,6 +405,7 @@ ELSE()
    ADD_LIBRARY(libmariadb ${libmariadb_RC} ${MARIADB_OBJECTS} mariadbclient.def)
    SET_TARGET_PROPERTIES(libmariadb PROPERTIES LINKER_LANGUAGE C)
