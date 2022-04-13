@@ -25,9 +25,6 @@ src_install() {
 	sed -i "s|^# agreeToLicense=|agreeToLicense=yes|" installer_input.txt || die
 	sed -i "s|^# licensePath=|licensePath=${DISTDIR}/${PN}-{PV}.lic|" installer_input.txt || die
 
-	# create destination folder
-	mkdir -p "${D}/opt/${PN}-${PV}" || die
-
 	# install with original installer
 	./install -inputFile ./installer_input.txt || die
 
