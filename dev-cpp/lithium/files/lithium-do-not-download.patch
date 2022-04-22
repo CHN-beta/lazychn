@@ -1,0 +1,14 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 7a09caf..ad1b886 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -98,8 +100,7 @@ endif()
+ ########
+ set(GENERATED_CONTENT_TYPES "${CMAKE_SOURCE_DIR}/libraries/http_server/http_server/content_types.hh")
+ 
+-file(DOWNLOAD http://svn.apache.org/repos/asf/httpd/httpd/trunk/docs/conf/mime.types /tmp/lithium_mime.types)
+-file(READ  /tmp/lithium_mime.types mimeTypes)
++file(READ ${DISTDIR}/lithium_mime.types mimeTypes)
+ foreach(X  RANGE 1 20)
+   string(REGEX REPLACE "([^\t\n]+)[\t]+([^\n ]+) ([^\n]+)\n" "\\1\t\\2\n\\1\t\\3\n" mimeTypes "${mimeTypes}")
+ endforeach()
